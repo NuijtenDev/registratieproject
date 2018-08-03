@@ -10,30 +10,34 @@ class Gebruiker
 	private $opmerking;
 	private $urenGewerkt;
 
-	public function __construct($postDataVanIndex)
+	public function __construct(
+		$naam, 
+		$locatie, 
+		$datum, 
+		$tijd, 
+		$opmerking, 
+		$uren
+		)
 	{
-		$this->naam 		= $postDataVanIndex['name'];
-		$this->locatie 		= $postDataVanIndex['locatie'];
-		$this->datum        = $postDataVanIndex['datum'];
-		$this->tijd 		= $postDataVanIndex['tijd'];
-		$this->opmerking	= $postDataVanIndex['opmerking'];
-		$this->urenGewerkt  = $postDataVanIndex['uren'];
+		$this->naam = $naam;
+		$this->locatie = $locatie;
+		$this->datum = $datum;
+		$this->tijd = $tijd;
+		$this->opmerking = $opmerking;
+		$this->urenGewerkt = $urenGewerkt;
+
 	}
 
-	public function maakGebruiker()
+	public static function maakGebruiker($postDataVanIndex)
 	{
-		$gebruiker = new \Entiteit\Gebruiker(
+		$naam 			= $postDataVanIndex['name'];
+		$locatie 		= $postDataVanIndex['locatie'];
+		$datum      	= $postDataVanIndex['datum'];
+		$tijd 			= $postDataVanIndex['tijd'];
+		$opmerking		= $postDataVanIndex['opmerking'];
+		$urenGewerkt	= $postDataVanIndex['uren'];
 
-		$this->naam,
-		$this->locatie,
-		$this->datum,
-		$this->tijd,
-		$this->opmerking,
-		$this->urenGewerkt
-
-		);
-
-		return $gebruiker;
+		return new self($naam, $locatie, $datum, $tijd, $opmerking, $uren);
 	}
 
 	public function voegGebruikerToeAanDeSpreadsheet($gebruiker)

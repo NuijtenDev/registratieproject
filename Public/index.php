@@ -4,8 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$gebruikerController  = new Controller\Gebruiker($_GET);
-$maakGebruikerAan     = $gebruikerController->maakGebruiker(); 
+$maakGebruikerAan     = Controller\Gebruiker::maakGebruiker($_GET); 
 $gebruikerController->voegGebruikerToeAanDeSpreadsheet($maakGebruikerAan);
 
 ?>
