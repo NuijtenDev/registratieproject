@@ -8,7 +8,7 @@ class Verbinding
 	private function MaakVerbindingMetZapier($postdata)
 	{
 		$ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,"https://hooks.zapier.com/hooks/catch/2828555/g1sj8r/");
+        curl_setopt($ch, CURLOPT_URL,"zapier webhook url");
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
 
